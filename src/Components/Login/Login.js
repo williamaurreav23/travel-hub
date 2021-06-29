@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import brand from '../../images/logo.png';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
@@ -102,13 +103,15 @@ const GoogleSignIn =()=> {
 }
 
 //css
-const linkCss = {textDecoration:"none", color:"#00d369f6", cursor:"pointer"};
-const InputCss ={backgroundColor:"#f1f1f1", borderRadius:".2rem", padding:"1rem"};
-const titleBtn = {textDecoration: 'inherit', color:"white", backgroundColor:"#00d369f6", border:"none", fontWeight:"500"};
+const brandImg = { width:"7rem"};
+const linkCss = {textDecoration:"none", color:"#4f4f4f", cursor:"pointer"};
+const cardBody ={borderRadius:".2rem", padding:"1rem",  border:"0", background: "rgba(255,255,255,0.8)",
+                boxShadow: "10px 10px 20px -6px rgba(0,0,0,0.3)"};
+const titleBtn = {textDecoration: 'inherit', color:"white", backgroundColor:"#4f4f4f", border:"none", fontWeight:"500"};
 const or = {textAlign:"center", borderBottom: "1px solid #b4b4b4",lineHeight: "0.1rem",margin: "10px 0 20px" }
-const span = { background:"#f1f1f1",padding:"0 10px"};
+const span = { background:"#fff",padding:"0 10px"};
 const socialBtn = { width:"1.5rem", backgroundColor:"#fff", borderRadius:"50%"}
-const SocialCol ={backgroundColor:"#00d369f6", borderRadius:".2rem", textAlign:"center", cursor:"pointer", color:"#fff",
+const SocialCol ={backgroundColor:"#4f4f4f", borderRadius:".2rem", textAlign:"center", cursor:"pointer", color:"#fff",
                   padding:".3rem", margin:"0 1rem", border:"none"}
   
 
@@ -117,9 +120,9 @@ const SocialCol ={backgroundColor:"#00d369f6", borderRadius:".2rem", textAlign:"
       <div>
         <Container style={{marginTop:"8%"}}>
             <Row className="justify-content-center">
-                <Col md={4} style={InputCss}>
+                <Col md={4} style={cardBody}>
                   <Form onSubmit={handleSubmit}>
-                    <Card.Title className="text-center mb-3">{newUser ? 'CREATE ACCOUNT' : 'LOGIN'}</Card.Title>
+                    <Card.Title className="text-center mb-3"><img src={brand} style={brandImg} alt=""/></Card.Title>
                     <Form.Group controlId="formBasicEmail formBasicPassword">
                         {newUser && <Form.Control onBlur={handleBlur} className="mb-3" name="name"  type="text" placeholder="Your full name" required/>}
                         <Form.Control onBlur={handleBlur} className="mb-3" name="email" type="text" placeholder="Enter email" required/>
