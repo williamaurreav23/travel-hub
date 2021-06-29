@@ -36,7 +36,6 @@ export default function AppBar () {
                     <Nav className="mr-auto navXl" style={nav}>
                         <Link to="/home" style={linkUnderLine}><Nav.Item style={titleChild} id="Item">HOME</Nav.Item></Link>
                         <Link to="/destinations" style={linkUnderLine}><Nav.Item id="Item" style={titleChild}>DESTINATIONS</Nav.Item></Link>
-                        <Link to="/contact" style={linkUnderLine}><Nav.Item id="Item" style={titleChild}>CONTACT</Nav.Item></Link>
                         <Link to="/bookingList" style={linkUnderLine}><Nav.Item id="Item" style={titleChild}>BOOKINGS</Nav.Item></Link>
                         <Link to="/orderList" style={linkUnderLine}><Nav.Item id="Item" style={titleChild}>ADMIN</Nav.Item></Link>
                         {user ? <img src={user.photoURL} style={photoUrl} alt="idImage"/> : <Link to="/login" style={linkUnderLine}><Nav.Item id="Item" style={titleChild}>LOGIN</Nav.Item></Link> }

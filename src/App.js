@@ -7,7 +7,6 @@ import NoMatch from './Components/NoMatch/NoMatch';
 import Review from './Components/BookingPanel/Review/Review';
 import AppBar from './Components/Shared/AppBar/AppBar';
 import Destinations from './Components/Home/Destinations/Destinations';
-import Contact from './Components/Home/Contact/Contact';
 import BookingPayment from './Components/BookingPanel/Book/BookingPayment';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import BookingList from './Components/BookingPanel/BookingList/BookingList';
@@ -32,7 +31,6 @@ function App() {
                     <Route path='/home'><Home/></Route>
                     <Route path='/login'><Login/></Route>
                     <Route path='/destinations'><Destinations/></Route>
-                    <Route path='/contact'><Contact/></Route>
 
                     {/* booking components */}
                     <Route path="/bookingPayment"><BookingPayment/></Route>
