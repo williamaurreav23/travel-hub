@@ -20,7 +20,7 @@ export default function Booking () {
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [id])
-
+ 
     const onSubmit = data => {SetPaymentData(data);};
     const handlePaymentSuccess = paymentId => {
         const orderDetails = {email:loggedInUser.email, title: title, payment:paymentData,  status:'pending', paymentId, orderTime: new Date()}

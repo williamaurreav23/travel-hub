@@ -45,10 +45,10 @@ function App() {
                     <PrivateRoute path='/addReview'><AddReview/></PrivateRoute>
 
                     {/* admin components */}
-                    <Route path='/orderList'><OrderList/></Route>
-                    <Route path='/addDestinations'><AddDestinations/></Route>
-                    <Route path='/manageDestinations'><ManageDestinations/></Route>
-                    <Route path='/makeAdmin'><MakeAdmin/></Route>
+                    <PrivateRoute path='/orderList'><OrderList/></PrivateRoute>
+                    <PrivateRoute path='/addDestinations'><AddDestinations/></PrivateRoute>
+                    <PrivateRoute path='/manageDestinations'><ManageDestinations/></PrivateRoute>
+                    <PrivateRoute path='/makeAdmin'><MakeAdmin/></PrivateRoute>
 
                     <Route path='*'><NoMatch/></Route>
                 </Switch>
