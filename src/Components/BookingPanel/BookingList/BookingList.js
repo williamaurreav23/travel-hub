@@ -11,7 +11,7 @@ export default function BookingList () {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/getBookingList?email=" + loggedInUser.email)
+        fetch("https://travel-hub-server.herokuapp.com/getBookingList?email=" + loggedInUser.email)
         .then(res => res.json())
         .then(data => {setBookingLists(data); setSpinner(false)})
     }, [])

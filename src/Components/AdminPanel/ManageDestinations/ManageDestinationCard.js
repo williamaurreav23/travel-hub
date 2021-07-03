@@ -9,7 +9,7 @@ export default function ManageDestinationsCard (props) {
     const [modal, setModal] = useState(false);
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/deleteDestination/${_id}`, { method: "DELETE" })
+        fetch(`https://travel-hub-server.herokuapp.com/deleteDestination/${_id}`, { method: "DELETE" })
         .then(res => res.json())
         .then(data => { setModal(true);})};
 

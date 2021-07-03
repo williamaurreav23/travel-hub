@@ -23,7 +23,7 @@ export default function  AddReview () {
 
     const onSubmit = data => {  const addReview = { name: data.name, imageURL: imageURL, description: data.description}
         if (imageURL) {
-            fetch('http://localhost:5000/addReview', {
+            fetch('https://travel-hub-server.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},body: JSON.stringify(addReview)})
             .then(res => res.json())

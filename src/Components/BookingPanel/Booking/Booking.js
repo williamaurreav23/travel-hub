@@ -16,7 +16,7 @@ export default function Booking () {
     const [booking, setBooking] = useState({});
     const { title, price} = booking;
     useEffect(() => {
-        fetch('http://localhost:5000/getDestinations/' + id)
+        fetch('https://travel-hub-server.herokuapp.com/getDestinations/' + id)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [id])
@@ -24,7 +24,7 @@ export default function Booking () {
     const onSubmit = data => {SetPaymentData(data);};
     const handlePaymentSuccess = paymentId => {
         const orderDetails = {email:loggedInUser.email, title: title, payment:paymentData,  status:'pending', paymentId, orderTime: new Date()}
-        fetch('http://localhost:5000/newBooking', {
+        fetch('https://travel-hub-server.herokuapp.com/newBooking', {
             method: "POST",
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(orderDetails)

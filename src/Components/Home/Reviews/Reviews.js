@@ -7,7 +7,7 @@ export default function Reviews () {
     const [reviews, setReviews] = useState([]);
     const [spinner, setSpinner] = useState(true);
 
-    useEffect(() => { fetch("http://localhost:5000/getReviews")
+    useEffect(() => { fetch("https://travel-hub-server.herokuapp.com/getReviews")
         .then(res => res.json())
         .then(data => {  setReviews(data); setSpinner(false) })
     }, []);

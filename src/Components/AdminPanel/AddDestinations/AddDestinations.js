@@ -23,7 +23,7 @@ export default function AddDestinations() {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {  const addDestination = { title: data.title, price: data.price, imageURL: imageURL, description: data.description}
         if (imageURL) {
-            fetch('http://localhost:5000/addDestinations', {
+            fetch('https://travel-hub-server.herokuapp.com/addDestinations', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(addDestination)

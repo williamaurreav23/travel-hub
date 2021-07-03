@@ -8,7 +8,7 @@ export default function Destinations ()  {
     const [destinations, setDestinations] = useState([]);
     const [spinner, setSpinner] = useState(true);
 
-    useEffect(() => { fetch("http://localhost:5000/getDestinations")
+    useEffect(() => { fetch("https://travel-hub-server.herokuapp.com/getDestinations")
         .then(res => res.json())
         .then(data => {  setDestinations(data); setSpinner(false) })
     }, []);

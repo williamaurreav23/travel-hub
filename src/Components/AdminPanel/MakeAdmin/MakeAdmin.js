@@ -10,7 +10,7 @@ export default function MakeAdmin () {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://travel-hub-server.herokuapp.com/makeAdmin', {
             method :"POST",
             headers: {'ContentType':"application.json"},
             body: JSON.stringify(data)
@@ -20,7 +20,7 @@ export default function MakeAdmin () {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/getAdmin')
+        fetch('https://travel-hub-server.herokuapp.com/getAdmin')
         .then(res => res.json())
         .then(data => setGetAdmin(data))
     });

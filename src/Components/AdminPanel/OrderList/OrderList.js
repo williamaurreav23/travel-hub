@@ -10,7 +10,7 @@ export default function OrderList () {
     const [spinner, setSpinner] = useState(true);
     
     useEffect(() => {
-        fetch('http://localhost:5000/allOrderList')
+        fetch('https://travel-hub-server.herokuapp.com/allOrderList')
         .then(res => res.json())
         .then(data => { setOrderLists(data); setSpinner(false)})
     }, [toggle]);
