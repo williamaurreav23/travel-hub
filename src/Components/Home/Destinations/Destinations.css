@@ -1,0 +1,9 @@
+#destinations { display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+    #destinations {
+        display: grid; margin : 1rem auto; grid-template-columns: 1fr; width: 100%;
+    }
+}

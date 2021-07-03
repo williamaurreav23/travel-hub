@@ -1,0 +1,9 @@
+#reviews { display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+    #reviews {
+        display: grid; margin : 1rem; grid-template-columns: 1fr; width: fit-content;
+    }
+}
