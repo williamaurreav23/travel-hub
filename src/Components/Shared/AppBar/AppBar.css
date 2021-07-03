@@ -1,6 +1,0 @@
-#Item:hover{ background-color: #ffffff; padding:0 .1rem; border-radius: .2rem;}
-
-@media only screen and (max-width: 600px) {
-    .appbar {margin-bottom: 5rem}
-    .navXl { background-color: #fffffff1;}
-  }
