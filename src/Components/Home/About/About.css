@@ -2,5 +2,5 @@
 @media only screen and (max-width: 500px) {
     #Row { display: grid; margin : 1rem; grid-template-columns: 1fr; width: fit-content;}
     #rightCol { margin-top: 1rem;}
-    #aboutImg{width:100%; }
+    #aboutImg{width:100%;}
 }

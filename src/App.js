@@ -1,19 +1,24 @@
 import React, { createContext, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router,Switch, Route,} from "react-router-dom";
+
+import AppBar from './Components/Shared/AppBar/AppBar';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import NoMatch from './Components/NoMatch/NoMatch';
+// home components
 import Login from './Components/Login/Login';
 import Home from './Components/Home/Home/Home';
-import NoMatch from './Components/NoMatch/NoMatch';
-import Review from './Components/BookingPanel/Review/Review';
-import AppBar from './Components/Shared/AppBar/AppBar';
 import Destinations from './Components/Home/Destinations/Destinations';
-import BookingPayment from './Components/BookingPanel/Book/BookingPayment';
-import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+// booking components
+import BookingPayment from './Components/BookingPanel/Booking/ProcessPayment/BookingPayment';
 import BookingList from './Components/BookingPanel/BookingList/BookingList';
+import AddReview from './Components/BookingPanel/AddReview/AddReview';
+// admin components
 import OrderList from './Components/AdminPanel/OrderList/OrderList';
 import AddDestinations from './Components/AdminPanel/AddDestinations/AddDestinations';
 import ManageDestinations from './Components/AdminPanel/ManageDestinations/ManageDestinations';
 import MakeAdmin from './Components/AdminPanel/MakeAdmin/MakeAdmin';
+import Booking from './Components/BookingPanel/Booking/Booking';
 export const UserContext = createContext();
 
 
@@ -33,10 +38,11 @@ function App() {
                     <Route path='/destinations'><Destinations/></Route>
 
                     {/* booking components */}
-                    <Route path="/bookingPayment"><BookingPayment/></Route>
-                    <Route path='/bookingPayment/:title/:price'><BookingPayment/></Route>
-                    <Route path='/bookingList'><BookingList/></Route>
-                    <Route path='/review'><Review/></Route>
+                    <PrivateRoute path="/booking/:id"><Booking/></PrivateRoute>
+                    <PrivateRoute path="/bookingMain"><Booking/></PrivateRoute>
+                    <PrivateRoute path="/bookingPayment"><BookingPayment/></PrivateRoute>
+                    <PrivateRoute path='/bookingList'><BookingList/></PrivateRoute>
+                    <PrivateRoute path='/addReview'><AddReview/></PrivateRoute>
 
                     {/* admin components */}
                     <Route path='/orderList'><OrderList/></Route>

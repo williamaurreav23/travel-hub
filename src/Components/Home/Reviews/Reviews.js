@@ -6,9 +6,10 @@ import ReviewsCard from './ReviewsCard';
 export default function Reviews () {
     const [reviews, setReviews] = useState([]);
     const [spinner, setSpinner] = useState(true);
-    useEffect(() => { fetch('https://fathomless-everglades-19778.herokuapp.com/reviews')
-            .then(res => res.json())
-            .then(data => {setReviews(data.slice(0, 3)); setSpinner(false)})
+
+    useEffect(() => { fetch("http://localhost:5000/getReviews")
+        .then(res => res.json())
+        .then(data => {  setReviews(data); setSpinner(false) })
     }, []);
 
     //css
@@ -27,7 +28,7 @@ export default function Reviews () {
                         {reviews.map(review => <ReviewsCard key={review._id} review={review} ></ReviewsCard>) }
                     </Col>
                 </Row>
-                <Col className="text-center mb-4 mt-4">
+                <Col className="text-center mb-4">
                     <Button style={titleBtn} className="btn-md disabled">See more reviews...</Button>
                 </Col>
             </Container>

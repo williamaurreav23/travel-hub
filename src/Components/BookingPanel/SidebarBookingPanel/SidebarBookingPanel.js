@@ -19,9 +19,9 @@ export default function Sidebar() {
             <Card style={sidebar}>
                 <Card.Body>
                     <Card.Title><img src={brand} style={brandImg} alt=""/></Card.Title>
-                    <Link to="/bookingPayment" style={linkUnderline}><Card.Text style={text}><FontAwesomeIcon style={FontAws} icon={faShoppingCart}/>&nbsp; Book</Card.Text></Link>
+                    <Link to="/bookingMain" style={linkUnderline}><Card.Text style={text}><FontAwesomeIcon style={FontAws} icon={faShoppingCart}/>&nbsp; Book</Card.Text></Link>
                     <Link to="/bookingList" style={linkUnderline}><Card.Text style={text}><FontAwesomeIcon style={FontAws} icon={faListAlt}/>&nbsp; Booking List</Card.Text></Link>
-                    <Link to="/review" style={linkUnderline}><Card.Text style={text}><FontAwesomeIcon style={FontAws} icon={faCommentAlt}/>&nbsp; Review</Card.Text></Link>
+                    <Link to="/addReview" style={linkUnderline}><Card.Text style={text}><FontAwesomeIcon style={FontAws} icon={faCommentAlt}/>&nbsp; Give a Review</Card.Text></Link>
                 </Card.Body>
             </Card> 
         </div>

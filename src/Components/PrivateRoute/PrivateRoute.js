@@ -10,7 +10,8 @@ export default function PrivateRoute({children, ...rest}) {
         <Route
             {...rest}
                 render={({ location }) =>
-                    loggedInUser.email ? ( children) : (
+                    (loggedInUser.email || sessionStorage.getItem('token')) ? 
+                    ( children) : (
           <Redirect
             to={{
               pathname: "/login",

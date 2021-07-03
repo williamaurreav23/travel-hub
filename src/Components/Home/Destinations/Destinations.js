@@ -8,9 +8,9 @@ export default function Destinations ()  {
     const [destinations, setDestinations] = useState([]);
     const [spinner, setSpinner] = useState(true);
 
-    useEffect(() => { fetch("https://fathomless-everglades-19778.herokuapp.com/getService")
+    useEffect(() => { fetch("http://localhost:5000/getDestinations")
         .then(res => res.json())
-        .then(data => {  setDestinations(data.slice(0, 6)); setSpinner(false) })
+        .then(data => {  setDestinations(data); setSpinner(false) })
     }, []);
 
     //css
@@ -29,7 +29,7 @@ export default function Destinations ()  {
                 <Container> 
                     <Row className="justify-content-center">
                         <Col id="destinations">
-                            {destinations.map(service => <DestinationCards service={service} key={service._id}></DestinationCards>)}
+                            {destinations.map(destination => <DestinationCards destination={destination} key={destination._id}></DestinationCards>)}
                         </Col>
                     </Row>
                     <Col className="text-center mb-4 mt-4">

@@ -1,15 +1,14 @@
 import React, {  useState } from 'react';
-import { Button, Container, Row, Col, Form, Card, ButtonGroup } from 'react-bootstrap';
+import { Button, Container, Row, Col, Form, ButtonGroup, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import SidebarAdminPanel from '../SidebarAdminPanel/SidebarAdminPanel';
 const axios = require('axios').default;
 
 
-
 export default function AddDestinations() {
-    const { register, handleSubmit } = useForm();
-    const [imageURL, setImageURL] = useState(null)
+    const [modal, setModal] = useState(false);
+    const [imageURL, setImageURL] = useState(null);
+    
     const handleImage = (e) => {
         const imageData = new FormData();
         imageData.set('key','bfb6697942dc1322d12730fc343c43ee')
@@ -19,29 +18,26 @@ export default function AddDestinations() {
             setImageURL(response.data.data.display_url);
           })
           .catch(function (error) {console.log(error)});
-    }
+        }
 
-    const history = useHistory()
-    const onSubmit = data => { const addMobile = { name: data.name, company: data.company, price: data.price, img: imageURL }
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {  const addDestination = { title: data.title, price: data.price, imageURL: imageURL, description: data.description}
         if (imageURL) {
-            fetch('https://mobilemaya-backend.herokuapp.com/addMobile', {
+            fetch('http://localhost:5000/addDestinations', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(addMobile)
+                body: JSON.stringify(addDestination)
             })
-                .then(res => res.json())
-                .then(data => { 
-                    alert("Item added successfully")
-                    history.push('/manageDestinations') 
-                })
+            .then(res => res.json())
+            .then(data => {  setModal(true); 
+            })
         }
     };
 
     //css
-    const formBg = { backgroundColor: "#f1f1f1", padding: "1rem", borderRadius: ".5rem" }
     const titleBtn = { textDecoration: 'inherit', color: "white", backgroundColor: "#4f4f4f", border: "none", fontWeight: "500", width: "100%" };
     const file = { width: "100%", border: "1px solid #f7fffb", borderRadius: ".3rem", backgroundColor: "#fff" }
-    const book = { backgroundColor:"#f1f1f1", height:"100vh"};
+    const book = { backgroundColor:"#f1f1f1", height:"100%"};
     const halfCol = { margin:"2rem 1rem"};
     const h6 = { margin:"0", padding:"1rem", backgroundColor:"#fff"};
     
@@ -55,7 +51,7 @@ export default function AddDestinations() {
                     <Col style={halfCol} md={6}>
                         <Form onSubmit={handleSubmit(onSubmit)}>
                             <Form.Group>
-                                <Form.Control name="name" ref={register({ required: true })} className="mb-2" placeholder="Enter destination title"/>
+                                <Form.Control name="title" ref={register({ required: true })} className="mb-2" placeholder="Enter title"/>
                                 <Form.Control name="price"  ref={register({ required: true })} className="mb-2" type="number"  placeholder="Enter price"/>
                                 <Form.Control name="description"  as="textarea" rows={4}  ref={register({ required: true })} className="mb-2" placeholder="Enter Description"/>
                                 <Form.Control name="image"onChange={handleImage} ref={register({ required: true })} className="mb-1" type="file" style={file} />
@@ -68,6 +64,12 @@ export default function AddDestinations() {
                     </Col>
                 </Col>
             </Row>
+
+            {/* modal */}
+            <Modal show={modal} onHide={()=>setModal(false)} centered>
+                <Modal.Body><h6>Destination added successfully.</h6></Modal.Body>
+                <Modal.Footer><Button variant="secondary btn-sm" onClick={()=> setModal(false)}>Close</Button></Modal.Footer>
+            </Modal>
         </Container>
     </div>
     );
